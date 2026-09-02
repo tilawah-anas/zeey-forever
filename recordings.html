@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>domty's promise</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>For Zeey ♡</h2>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+
+        <a href="birthday.html" class="sidebar-link">
+          <i class="fa-solid fa-cake-candles"></i>
+          <span>Happy Birthday</span>
+        </a>
+
+        <a href="calligraphy.html" class="sidebar-link">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span>Calligraphy</span>
+        </a>
+
+        <a href="card.html" class="sidebar-link">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Your Letters</span>
+        </a>
+
+        <a href="mulk.html" class="sidebar-link">
+          <i class="fa-solid fa-book-quran"></i>
+          <span>Surah Al-Mulk</span>
+        </a>
+
+        <a href="recordings.html" class="sidebar-link">
+          <i class="fa-solid fa-headphones"></i>
+          <span>My Recitations</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Made with lots of love</p>
+        <span>♡ humayra</span>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MENU BUTTON -->
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <main class="recordings-page">
+      <header class="recordings-header">
+        <p class="recordings-small-text">my final gift to youu</p>
+
+        <h2>Zeey's Recordings 🤍</h2>
+
+        <p class="recordings-subtitle">10 recordings, like i promised 🙈</p>
+      </header>
+
+      <!-- recitations -->
+      <section class="recordings-list">
+        <!--recording 1-->
+        <div class="recording-card">
+          <div class="recording-number">01</div>
+
+          <div class="recording-info">
+            <h2>Recording 1</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/067.mp3"></audio>
+        </div>
+
+        <!--recording 2-->
+        <div class="recording-card">
+          <div class="recording-number">02</div>
+
+          <div class="recording-info">
+            <h2>Recording 2</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/003.MP3"></audio>
+        </div>
+
+        <!--recording 3-->
+        <div class="recording-card">
+          <div class="recording-number">03</div>
+
+          <div class="recording-info">
+            <h2>Recording 3</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/005.MP3"></audio>
+        </div>
+
+        <!--recording 4-->
+        <div class="recording-card">
+          <div class="recording-number">04</div>
+
+          <div class="recording-info">
+            <h2>Recording 4</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/018.MP3"></audio>
+        </div>
+
+        <!--recording 5-->
+        <div class="recording-card">
+          <div class="recording-number">05</div>
+
+          <div class="recording-info">
+            <h2>Recording 5</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/019.MP3"></audio>
+        </div>
+
+        <!--recording 6-->
+        <div class="recording-card">
+          <div class="recording-number">06</div>
+
+          <div class="recording-info">
+            <h2>Recording 6</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/025.mp3"></audio>
+        </div>
+
+        <!--recording 7-->
+        <div class="recording-card">
+          <div class="recording-number">07</div>
+
+          <div class="recording-info">
+            <h2>Recording 7</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/028.MP3"></audio>
+        </div>
+
+        <!--recording 8-->
+        <div class="recording-card">
+          <div class="recording-number">08</div>
+
+          <div class="recording-info">
+            <h2>Recording 8</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/baqarah.MP3"></audio>
+        </div>
+
+        <!--recording 9-->
+        <div class="recording-card">
+          <div class="recording-number">09</div>
+
+          <div class="recording-info">
+            <h2>Recording 9</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/023.MP3"></audio>
+        </div>
+
+        <!--recording 10-->
+        <div class="recording-card">
+          <div class="recording-number">10</div>
+
+          <div class="recording-info">
+            <h2>Recording 10</h2>
+            <p>for zeey</p>
+          </div>
+
+          <audio controls src="audio/muminun.MP3"></audio>
+        </div>
+      </section>
+
+      <!-- button -->
+      <a href="mulk.html" class="recordings-back">← Back</a>
+    </main>
+
+    <script src="script.js">
+      // Stops multiple audios from playing at once
+      const recordings = document.querySelectorAll(".recording-card audio");
+
+      recordings.forEach((audio) => {
+        audio.addEventListener("play", () => {
+          recordings.forEach((otherAudio) => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

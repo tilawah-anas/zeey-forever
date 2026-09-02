@@ -1,0 +1,1571 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* QCF QUR'AN FONTS */
+@font-face {
+  font-family: "QCF2562";
+  src: url("fonts/QCF2562.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "QCF2563";
+  src: url("fonts/QCF2563.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "QCF2564";
+  src: url("fonts/QCF2564.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ArabicHeader";
+  src: url("fonts/surah-name.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bismillah";
+  src: url("fonts/Elgharib-Al-Basmala.ttf") format("truetype");
+}
+
+body {
+  min-height: 100vh;
+  background: #fff7f8;
+  color: #6f4a52;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 28px 20px;
+  background: #fffafa;
+  border-right: 1px solid #e4ccd1;
+  display: flex;
+  flex-direction: column;
+  /* DESKTOP: ALWAYS VISIBLE */
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  color: #8c5966;
+}
+
+.sidebar-close {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #8c5966;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar-close:hover {
+  background: #f8e9ec;
+  transform: rotate(90deg);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  border-radius: 13px;
+  text-decoration: none;
+  color: #8c5966;
+  font-size: 0.95rem;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sidebar-link i {
+  width: 22px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.sidebar-link:hover {
+  background: #f8e9ec;
+  transform: translateX(3px);
+}
+
+.sidebar-link.active {
+  background: #f8e9ec;
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 25px;
+  text-align: center;
+  color: #b98591;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.sidebar-footer p {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.sidebar-footer span {
+  font-size: 1rem;
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 601px) {
+  /* Make room for the sidebar */
+  body {
+    padding-left: 280px;
+  }
+
+  /* No hamburger on desktop */
+  .menu-button {
+    display: none;
+  }
+
+  /* No overlay on desktop */
+  .sidebar-overlay {
+    display: none;
+  }
+
+  /* No close button on desktop */
+  .sidebar-close {
+    display: none;
+  }
+}
+
+/* MOBILE SIDEBAR */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 270px;
+    padding: 25px 18px;
+    /* MOBILE: hidden until opened */
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close {
+    display: flex;
+  }
+
+  .menu-button {
+    display: flex;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e4ccd1;
+    border-radius: 12px;
+    background: rgba(255, 250, 251, 0.95);
+    color: #8c5966;
+    font-size: 1.1rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 900;
+    box-shadow: 0 5px 18px rgba(140, 89, 102, 0.08);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(80, 40, 50, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+
+    z-index: 999;
+  }
+
+  .sidebar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.small-text {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #b98591;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 500;
+  color: #9b6572;
+  margin-bottom: 10px;
+}
+
+.intro-text {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #9b747c;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 12px 28px;
+  border: 1px solid #d9aab5;
+  border-radius: 50px;
+  color: #8c5966;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #e9c1ca;
+  color: white;
+}
+
+/* NAVIGATION BUTTONS */
+.navigation-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* Main button */
+.navigation-buttons .button {
+  margin: 0;
+  padding: 10px 24px;
+}
+
+/* Back button */
+.navigation-buttons .back-button {
+  display: inline-block;
+  margin: 0;
+  padding: 2px 8px;
+  color: #b98591;
+  font-size: 0.65rem;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.navigation-buttons .back-button:hover {
+  color: #8c5966;
+  background: #f7e8eb;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navigation-buttons {
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .navigation-buttons .button {
+    margin: 0;
+  }
+
+  .navigation-buttons .back-button {
+    margin: 0;
+    padding: 2px 8px;
+    font-size: 0.65rem;
+  }
+}
+
+/* BIRTHDAY PAGE */
+.birthday-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7f8;
+}
+
+/* BIRTHDAY CONTENT */
+.birthday-content {
+  position: relative;
+  z-index: 10;
+  width: min(90%, 650px);
+  text-align: center;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.birthday-small {
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #b98591;
+}
+
+.birthday-content h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.05;
+  font-weight: 500;
+  color: #9b6572;
+}
+
+.birthday-text {
+  max-width: 360px;
+  margin: 24px auto 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #9b747c;
+}
+
+/* BUTTON */
+.birthday-content .button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 27px;
+  border: 1px solid #d9aab5;
+  border-radius: 50px;
+  color: #8c5966;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.birthday-content .button:hover {
+  background: #e9c1ca;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* FLOWERS */
+.flower {
+  position: absolute;
+  width: 90px;
+  height: 155px;
+  z-index: 3;
+  transform-origin: bottom center;
+  animation: flowerSway 4s ease-in-out infinite;
+}
+
+/* FLOWER POSITIONS */
+.flower-1 {
+  top: 7%;
+  left: 7%;
+  transform: scale(0.9);
+  animation-delay: 0s;
+}
+
+.flower-2 {
+  top: 10%;
+  right: 7%;
+  transform: scale(0.75);
+  animation-delay: 1s;
+}
+
+.flower-3 {
+  bottom: 7%;
+  left: 11%;
+  transform: scale(0.7);
+  animation-delay: 2s;
+}
+
+.flower-4 {
+  bottom: 6%;
+  right: 10%;
+  transform: scale(0.85);
+  animation-delay: 0.7s;
+}
+
+/* FLOWER HEAD */
+.flower-head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translateX(-50%);
+}
+
+/* PETALS */
+.petal {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  border: 2px solid #d99aa8;
+  border-radius: 50%;
+  background: #fff7f8;
+  transform-origin: bottom center;
+}
+
+/* Top petal */
+.p1 {
+  top: 0;
+  left: 20px;
+}
+
+/* Left petal */
+.p2 {
+  top: 10px;
+  left: 2px;
+  transform: rotate(-55deg);
+}
+
+/* Right petal */
+.p3 {
+  top: 10px;
+  right: 2px;
+  transform: rotate(55deg);
+}
+
+/* Bottom-left petal */
+.p4 {
+  bottom: 0;
+  left: 8px;
+  transform: rotate(-25deg);
+}
+
+/* Bottom-right petal */
+.p5 {
+  bottom: 0;
+  right: 8px;
+  transform: rotate(25deg);
+}
+
+/* FLOWER CENTER */
+.flower-center {
+  position: absolute;
+  top: 27px;
+  left: 27px;
+  width: 17px;
+  height: 17px;
+  z-index: 5;
+  border-radius: 50%;
+  background: #e9b3bf;
+  border: 2px solid #c98595;
+}
+
+/* STEM */
+.stem {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  width: 3px;
+  height: 90px;
+  transform: translateX(-50%);
+  background: #a9b88c;
+  border-radius: 10px;
+}
+
+/* LEAVES */
+.leaf {
+  position: absolute;
+  width: 27px;
+  height: 14px;
+  border: 2px solid #a9b88c;
+  border-radius: 100% 0 100% 0;
+  background: #fff7f8;
+}
+
+.leaf-left {
+  top: 103px;
+  left: 15px;
+  transform: rotate(-25deg);
+}
+
+.leaf-right {
+  top: 120px;
+  right: 14px;
+  transform: scaleX(-1) rotate(25deg);
+}
+
+/* FLOWER ANIMATION */
+@keyframes flowerSway {
+  0%,
+  100% {
+    rotate: -3deg;
+    translate: 0 0;
+  }
+
+  50% {
+    rotate: 3deg;
+    translate: 0 -8px;
+  }
+}
+
+/* FLOATING HEARTS */
+.floating-heart {
+  position: absolute;
+  bottom: -30px;
+  z-index: 6;
+  color: #d99aa8;
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  animation: heartFloat 7s linear infinite;
+}
+
+.heart-1 {
+  left: 18%;
+  animation-delay: 0s;
+}
+
+.heart-2 {
+  left: 37%;
+  font-size: 0.9rem;
+  animation-delay: 2s;
+}
+
+.heart-3 {
+  left: 55%;
+  font-size: 1.4rem;
+  animation-delay: 4s;
+}
+
+.heart-4 {
+  left: 72%;
+  font-size: 0.8rem;
+  animation-delay: 1s;
+}
+
+.heart-5 {
+  left: 88%;
+  font-size: 1.1rem;
+  animation-delay: 5s;
+}
+
+/* HEART ANIMATION */
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.6;
+  }
+
+  75% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* CONTENT ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .birthday-content {
+    width: 88%;
+  }
+
+  .birthday-small {
+    margin-bottom: 14px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .birthday-content h1 {
+    font-size: 3.1rem;
+    line-height: 1;
+  }
+
+  .birthday-text {
+    max-width: 280px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .birthday-content .button {
+    margin-top: 25px;
+    padding: 11px 24px;
+  }
+
+  /* Smaller flowers */
+  .flower {
+    transform: scale(0.55);
+  }
+
+  .flower-1 {
+    top: 5%;
+    left: -5%;
+  }
+
+  .flower-2 {
+    top: 7%;
+    right: -5%;
+  }
+
+  .flower-3 {
+    bottom: 4%;
+    left: -3%;
+  }
+
+  .flower-4 {
+    bottom: 3%;
+    right: -3%;
+  }
+
+  /* Slightly fewer visual distractions on small screens */
+  .floating-heart {
+    font-size: 1rem;
+  }
+}
+
+/* CALLIGRAPHY PAGE */
+.calligraphy-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7f8;
+}
+
+/* CONTENT */
+.calligraphy-content {
+  position: relative;
+  z-index: 10;
+  width: min(90%, 650px);
+  text-align: center;
+  animation: calligraphyFade 1.4s ease forwards;
+}
+
+.calligraphy-intro {
+  margin-bottom: 25px;
+  color: #b98591;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+/* CALLIGRAPHY IMAGE */
+.calligraphy-frame {
+  width: min(80vw, 480px);
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #e4bdc6;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 15px 40px rgba(160, 100, 115, 0.08);
+}
+
+.calligraphy-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* NOTE */
+.calligraphy-note {
+  margin-top: 20px;
+  color: #a66d79;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* BUTTON */
+.calligraphy-content .button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 27px;
+  border: 1px solid #d9aab5;
+  border-radius: 50px;
+  color: #8c5966;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.calligraphy-content .button:hover {
+  background: #e9c1ca;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* LEAF VINES */
+.vine {
+  position: absolute;
+  width: 130px;
+  height: 350px;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.vine-left {
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+}
+
+.vine-right {
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%) rotate(8deg) scaleX(-1);
+}
+
+/* Curved vine */
+.vine::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #a9b88c;
+  border-radius: 50%;
+}
+
+/* Leaves */
+.vine .leaf {
+  position: absolute;
+  width: 38px;
+  height: 20px;
+  border: 2px solid #a9b88c;
+  border-radius: 100% 0 100% 0;
+  background: #fff7f8;
+}
+
+.vine .leaf-1 {
+  top: 30px;
+  left: 25px;
+  transform: rotate(-30deg);
+}
+
+.vine .leaf-2 {
+  top: 100px;
+  right: 20px;
+  transform: rotate(30deg);
+}
+
+.vine .leaf-3 {
+  top: 190px;
+  left: 18px;
+  transform: rotate(-35deg);
+}
+
+.vine .leaf-4 {
+  top: 270px;
+  right: 15px;
+  transform: rotate(35deg);
+}
+
+/* ANIMATION */
+@keyframes calligraphyFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .calligraphy-content {
+    width: 90%;
+  }
+
+  .calligraphy-intro {
+    margin-bottom: 18px;
+    font-size: 0.75rem;
+  }
+
+  .calligraphy-frame {
+    width: 82vw;
+    padding: 9px;
+  }
+
+  .calligraphy-note {
+    margin-top: 15px;
+    font-size: 1.05rem;
+  }
+
+  .calligraphy-content .button {
+    margin-top: 20px;
+    padding: 11px 24px;
+  }
+
+  /* Smaller decorative vines */
+  .vine {
+    width: 70px;
+    height: 230px;
+    opacity: 0.45;
+  }
+
+  .vine-left {
+    left: -25px;
+  }
+
+  .vine-right {
+    right: -25px;
+  }
+
+  .vine .leaf {
+    width: 27px;
+    height: 14px;
+  }
+}
+
+/* CARD PAGE */
+.card-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7f8;
+}
+
+/* CARD CONTAINER */
+.card-container {
+  position: relative;
+  z-index: 10;
+  width: min(90%, 600px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: cardPageFade 1.2s ease forwards;
+}
+
+.card-intro {
+  margin-bottom: 25px;
+  color: #b98591;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+/* BIRTHDAY CARD */
+.birthday-card {
+  position: relative;
+  width: min(85vw, 470px);
+  height: 310px;
+  cursor: pointer;
+  perspective: 1200px;
+  transition: transform 0.3s ease;
+}
+
+.birthday-card:hover {
+  transform: translateY(-4px);
+}
+
+/* CARD FRONT */
+.card-front {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f4cbd3;
+  border: 1px solid #d9aab5;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(160, 100, 115, 0.12);
+  backface-visibility: hidden;
+  transform-origin: left center;
+  transition:
+    transform 1s ease,
+    opacity 0.5s ease;
+}
+
+.card-front::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.card-decoration {
+  margin-bottom: 15px;
+  font-size: 2.3rem;
+  color: #a66d79;
+}
+
+.card-front p {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: #8c5966;
+}
+
+.card-front span {
+  margin-top: 15px;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: #a66d79;
+}
+
+/* CARD INSIDE */
+.card-inside {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+  padding: 35px 40px;
+  background: #fffdfd;
+  border: 1px solid #e1c2c9;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(160, 100, 115, 0.1);
+  text-align: left;
+}
+
+.card-inside h1 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  font-weight: 500;
+  color: #9b6572;
+}
+
+.card-inside p {
+  margin: 12px 0;
+  color: #876b72;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.card-inside .card-ending {
+  margin-top: 22px;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  color: #a66d79;
+}
+
+.signature {
+  text-align: right;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1rem !important;
+  color: #a66d79 !important;
+}
+
+/* OPEN ANIMATION */
+.birthday-card.open .card-front {
+  transform: rotateY(-180deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.birthday-card.open {
+  cursor: default;
+}
+
+/* BACK BUTTON */
+.card-back {
+  margin-top: 14px;
+  padding: 3px 10px;
+  color: #b98591;
+  font-size: 0.7rem;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 20px;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.card-back:hover {
+  color: #8c5966;
+  background: #f7e8eb;
+}
+
+/* PAGE ANIMATION */
+@keyframes cardPageFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MULK BUTTON */
+.mulk-button {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0;
+  padding: 8px 16px;
+  color: #a66d79;
+  font-size: 0.72rem;
+  text-decoration: none;
+  border: 1px solid #e1c8cd;
+  border-radius: 30px;
+  background: #fff7f8;
+  transition: all 0.3s ease;
+}
+
+.mulk-button:hover {
+  background: #f4dce1;
+  color: #8c5966;
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .card-container {
+    width: 90%;
+  }
+
+  .card-intro {
+    margin-bottom: 18px;
+    font-size: 0.75rem;
+  }
+
+  .birthday-card {
+    width: 88vw;
+    height: 390px;
+  }
+
+  .card-front p {
+    font-size: 1.7rem;
+  }
+
+  .card-inside {
+    padding: 28px 24px;
+  }
+
+  .card-inside h1 {
+    font-size: 1.8rem;
+  }
+
+  .card-inside p {
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+
+  .card-back {
+    margin-top: 10px;
+    font-size: 0.68rem;
+  }
+}
+
+/* SURAH AL-MULK PAGE */
+.mulk-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 55px 20px 80px;
+  background: #fdf8f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8c5966;
+}
+
+/* HEADER */
+.mulk-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.mulk-small-text {
+  margin: 0 0 8px;
+  color: #b98591;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+}
+
+.mulk-header h1 {
+  margin: 0;
+  font-family: "ArabicHeader", serif;
+  font-size: 6rem;
+  font-weight: 400;
+  color: #8c5966;
+}
+
+.mulk-subtitle {
+  margin: 8px 0 0;
+  color: #b98591;
+  font-size: 0.78rem;
+}
+
+/* AUDIO PLAYER */
+.mulk-player {
+  width: min(650px, 92vw);
+  min-height: 70px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e4ccd1;
+  border-radius: 40px;
+  box-shadow: 0 8px 25px rgba(140, 89, 102, 0.07);
+  position: sticky;
+  top: 15px;
+  z-index: 50;
+}
+
+/* NATIVE AUDIO PLAYER */
+.mulk-player audio {
+  flex: 1;
+  width: min(430px, 100%);
+  height: 42px;
+}
+
+/* MUS'HAF */
+.mushaf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ZEEY'S MULK PAGE */
+.quran-page {
+  width: min(700px, 94vw);
+  box-sizing: border-box;
+  padding: 65px 60px 45px;
+  background: #fffdf9;
+  border: 1px solid #e5d7d4;
+  box-shadow: 0 10px 35px rgba(120, 80, 90, 0.06);
+}
+
+/* QCF TEXT */
+.qcf-text {
+  width: 100%;
+  direction: rtl;
+  text-align: center;
+  line-height: 1.9;
+  font-size: 1.5rem;
+  word-spacing: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Page-specific QCF fonts */
+.bismillah {
+  font-family: "Bismillah";
+  font-size: 2.5rem;
+  text-align: center;
+  direction: rtl;
+  margin-bottom: 9px;
+}
+
+.bismillah-translation {
+  margin: 10px 0 20px;
+  font-size: 0.5rem;
+  color: #b98591;
+  text-align: center;
+}
+
+.page-562 .qcf-text {
+  font-family: "QCF2562";
+}
+
+.page-563 .qcf-text {
+  font-family: "QCF2563";
+}
+
+.page-564 .qcf-text {
+  font-family: "QCF2564";
+}
+
+/* PAGE DIVIDER */
+.page-divider {
+  width: 100%;
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #dfc8cd;
+  margin: 0;
+}
+
+.page-divider span {
+  flex-shrink: 0;
+  color: #b98591;
+  font-size: 0.7rem;
+}
+
+/* BACK BUTTON */
+.mulk-back {
+  margin-top: 25px;
+  padding: 5px 12px;
+  color: #b98591;
+  font-size: 0.7rem;
+  text-decoration: none;
+  border-radius: 30px;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.mulk-back:hover {
+  color: #8c5966;
+  background: #f7e8eb;
+}
+
+/* MULK FOOTER */
+.mulk-footer {
+  margin-top: 45px;
+  text-align: center;
+  color: #b98591;
+}
+
+.mulk-footer p {
+  margin: 0 0 4px;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+}
+
+.mulk-footer span {
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  color: #8c5966;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .mulk-page {
+    padding: 35px 10px 60px;
+  }
+
+  .mulk-header {
+    margin-bottom: 20px;
+  }
+
+  .mulk-header h1 {
+    font-size: 2rem;
+  }
+
+  .mulk-player {
+    width: 94vw;
+    min-height: 62px;
+    padding: 9px 12px;
+    gap: 10px;
+  }
+
+  .player-details {
+    width: 70px;
+  }
+
+  .player-arabic {
+    font-size: 0.85rem;
+  }
+
+  .player-english {
+    font-size: 0.52rem;
+  }
+
+  .mulk-player audio {
+    height: 38px;
+  }
+
+  .quran-page {
+    width: 96vw;
+    padding: 40px 22px 30px;
+  }
+
+  .qcf-text {
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
+
+  .page-divider {
+    margin-top: 30px;
+  }
+}
+
+/* RECORDINGS PAGE */
+.recordings-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 55px 20px 70px;
+  background: #fdf8f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8c5966;
+}
+
+/* HEADER */
+.recordings-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.recordings-small-text {
+  margin: 0 0 10px;
+  color: #b98591;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+.recordings-header h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #9b6572;
+}
+
+.recordings-subtitle {
+  margin: 8px 0 0;
+  color: #b98591;
+  font-size: 0.8rem;
+}
+
+/* RECORDINGS LIST */
+.recordings-list {
+  width: min(650px, 94vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* RECORDING CARD */
+.recording-card {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e4ccd1;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(140, 89, 102, 0.05);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.recording-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(140, 89, 102, 0.08);
+}
+
+/* NUMBER */
+.recording-number {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f4dce1;
+  color: #9b6572;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+}
+
+/* TEXT */
+.recording-info {
+  min-width: 115px;
+  flex-shrink: 0;
+}
+
+.recording-info h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #8c5966;
+}
+
+.recording-info p {
+  margin: 3px 0 0;
+  font-size: 0.6rem;
+  color: #b98591;
+}
+
+/* AUDIO */
+.recording-card audio {
+  width: 100%;
+  height: 35px;
+}
+
+/* BACK BUTTON */
+.recordings-back {
+  margin-top: 30px;
+  padding: 5px 12px;
+
+  color: #b98591;
+  font-size: 0.7rem;
+
+  text-decoration: none;
+  border-radius: 30px;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.recordings-back:hover {
+  color: #8c5966;
+  background: #f7e8eb;
+}
+
+/* FOOTER */
+.recordings-footer {
+  margin-top: 45px;
+  text-align: center;
+  color: #b98591;
+}
+
+.recordings-footer p {
+  margin: 0 0 4px;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+
+.recordings-footer span {
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  color: #8c5966;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .recordings-page {
+    padding: 35px 12px 60px;
+  }
+
+  .recordings-header {
+    margin-bottom: 25px;
+  }
+
+  .recordings-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .recordings-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .recordings-list {
+    width: 96vw;
+    gap: 10px;
+  }
+
+  .recording-card {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 15px;
+  }
+
+  .recording-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .recording-info {
+    min-width: 95px;
+  }
+
+  .recording-info h2 {
+    font-size: 1rem;
+  }
+
+  .recording-info p {
+    font-size: 0.55rem;
+  }
+
+  .recording-card audio {
+    height: 32px;
+  }
+}

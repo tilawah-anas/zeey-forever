@@ -1,0 +1,22 @@
+{
+  "name": "for zeey ♡",
+  "short_name": "for zeey ♡",
+  "description": "A little gift made with lots of love for Zeey.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff7f8",
+  "theme_color": "#f4cbd3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
