@@ -1,4 +1,4 @@
-const CACHE_NAME = "for-zeey-v2";
+const CACHE_NAME = "for-zeey-v3";
 
 const FILES_TO_CACHE = [
   "./",
@@ -7,11 +7,11 @@ const FILES_TO_CACHE = [
   "./calligraphy.html",
   "./card.html",
   "./mulk.html",
+  "./recordings.html",
   "./style.css",
   "./script.js",
 
   "./zainab.png",
-  "./067.mp3",
 
   "./fonts/QCF2562.ttf",
   "./fonts/QCF2563.ttf",
