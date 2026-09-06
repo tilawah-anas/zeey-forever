@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#f4cbd3" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <title>Tasbih ♡</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>For Zeey ♡</h2>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+
+        <a href="birthday.html" class="sidebar-link">
+          <i class="fa-solid fa-cake-candles"></i>
+          <span>Happy Birthday</span>
+        </a>
+
+        <a href="calligraphy.html" class="sidebar-link">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span>Calligraphy</span>
+        </a>
+
+        <a href="card.html" class="sidebar-link">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Your Letters</span>
+        </a>
+
+        <a href="mulk.html" class="sidebar-link">
+          <i class="fa-solid fa-book-quran"></i>
+          <span>Surah Al-Mulk</span>
+        </a>
+
+        <a href="recordings.html" class="sidebar-link">
+          <i class="fa-solid fa-headphones"></i>
+          <span>My Recitations</span>
+        </a>
+
+        <a href="tasbih.html" class="sidebar-link">
+          <i class="fa-solid fa-circle-dot"></i>
+          <span>Tasbih</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Made with lots of love</p>
+        <span>♡ humayra</span>
+      </div>
+    </aside>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MENU BUTTON -->
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Main content -->
+    <main class="main-content tasbih-page">
+      <header class="tasbih-header">
+        <img
+          src="assets/tasbih.jpg"
+          alt="وَٱذْكُرُوا۟ ٱللَّهَ كَثِيرًۭا لَّعَلَّكُمْ تُفْلِحُونَ"
+          class="tasbih-ayah-image"
+        />
+      </header>
+
+      <section class="tasbih-container">
+        <h1>Tasbih</h1>
+
+        <p class="tasbih-subtitle">Remember Allah 🤍</p>
+
+        <div class="dhikr-selector">
+          <button class="dhikr-option active" data-dhikr="0">سبحان الله</button>
+
+          <button class="dhikr-option" data-dhikr="1">الحمد لله</button>
+
+          <button class="dhikr-option" data-dhikr="2">الله أكبر</button>
+
+          <button class="dhikr-option" data-dhikr="3">أستغفر الله</button>
+        </div>
+
+        <div class="dhikr-display">
+          <p class="tasbih-arabic" id="dhikrText">سُبْحَانَ ٱللَّهِ</p>
+        </div>
+
+        <div class="counter" id="counter">0</div>
+
+        <button class="tasbih-button" id="tasbihButton">
+          <i class="fa-solid fa-heart"></i>
+          Tap
+        </button>
+
+        <div class="tasbih-controls">
+          <button class="counter-control" id="minusButton">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+
+          <button class="reset-button" id="resetButton">Reset</button>
+
+          <button class="counter-control" id="plusButton">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </section>
+
+      <a href="recordings.html" class="button">
+  Back to My Recitations
+</a>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="tasbih.js"></script>
+  </body>
+</html>
